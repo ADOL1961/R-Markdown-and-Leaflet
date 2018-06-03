@@ -1,0 +1,24 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## My Three Favourite Musseums in Madrid
+### June 3, 2018
+```{r Map}
+library(leaflet)
+
+MuseumIcon <- makeIcon(
+        iconUrl = "https://image.flaticon.com/icons/png/512/23/23715.png",
+        iconWidth = 31*215/230, iconHeight = 31,
+        iconAnchorX = 31*215/230/2, iconAnchorY = 16
+)
+
+my_map <- leaflet() %>% 
+         addTiles() %>%
+         addMarkers(lat=c(40.42365,40.413888, 40.41611), lng=c(-3.689422,-3.6925, -3.695), 
+                   popup=c("National Archaeological Museum", "Padro Museum", "Thyssen-Bornemisza Museum"),
+                   icon = MuseumIcon)
+        
+my_map
+```
